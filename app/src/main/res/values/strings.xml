@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">OpenBible Scholar</string>
+    <string name="app_description">Free Offline AI-Powered Bible Study</string>
+
+    <!-- Reader -->
+    <string name="reader_read_aloud">Read Aloud</string>
+    <string name="reader_stop_reading">Stop Reading</string>
+    <string name="reader_next_chapter">Next Chapter</string>
+    <string name="reader_previous_chapter">Previous Chapter</string>
+    <string name="reader_select_book">Select Book</string>
+    <string name="reader_no_translation">No Bible Downloaded</string>
+    <string name="reader_no_translation_hint">Go to Library to download a Bible translation</string>
+
+    <!-- TTS -->
+    <string name="tts_reading">Reading the Bible aloud</string>
+    <string name="tts_speed">Reading Speed</string>
+    <string name="tts_pitch">Pitch</string>
+    <string name="tts_voice">Voice</string>
+    <string name="tts_unavailable">TTS engine not available. Please install a Text-to-Speech engine from Google Play.</string>
+
+    <!-- AI -->
+    <string name="ai_requires_key">Requires a free API key. Go to Settings → AI Settings.</string>
+    <string name="ai_requires_internet">AI features require an internet connection.</string>
+    <string name="ai_loading">Generating insight…</string>
+    <string name="ai_verse_insight">Verse Explanation</string>
+    <string name="ai_cross_refs">Cross References</string>
+    <string name="ai_historical">Historical Background</string>
+    <string name="ai_devotional">Daily Devotional</string>
+    <string name="ai_sermon_outline">Sermon Outline</string>
+    <string name="ai_passage_guide">Passage Guide</string>
+
+    <!-- Library -->
+    <string name="library_title">Library</string>
+    <string name="library_download">Download</string>
+    <string name="library_remove">Remove</string>
+    <string name="library_installed">Installed</string>
+    <string name="library_public_domain">Public Domain</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_font_size">Font Size</string>
+    <string name="settings_verse_numbers">Show Verse Numbers</string>
+    <string name="settings_headings">Show Section Headings</string>
+    <string name="settings_paragraph_mode">Paragraph Mode</string>
+    <string name="settings_default_translation">Default Translation</string>
+    <string name="settings_ai_enabled">Enable AI Features</string>
+    <string name="settings_api_keys">Configure API Keys</string>
+
+    <!-- Highlights -->
+    <string name="highlight_yellow">Yellow</string>
+    <string name="highlight_green">Green</string>
+    <string name="highlight_blue">Blue</string>
+    <string name="highlight_pink">Pink</string>
+    <string name="highlight_purple">Purple</string>
+    <string name="highlight_orange">Orange</string>
+
+    <!-- Errors -->
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_no_internet">No internet connection.</string>
+    <string name="error_api_key_missing">Please add your API key in Settings → AI Settings.</string>
+
+    <!-- Notifications -->
+    <string name="notif_tts_channel">Bible Reading</string>
+    <string name="notif_download_channel">Module Downloads</string>
+    <string name="notif_reminder_channel">Reading Reminders</string>
+    <string name="notif_daily_reminder_title">Time to read the Bible!</string>
+</resources>

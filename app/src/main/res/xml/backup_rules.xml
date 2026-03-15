@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Back up notes, highlights, bookmarks, reading plan progress -->
+    <include domain="database" path="open_bible_scholar.db" />
+    <!-- Exclude API keys — user must re-enter them (stored in EncryptedSharedPreferences) -->
+    <exclude domain="sharedpref" path="obs_secure_prefs.xml" />
+</full-backup-content>

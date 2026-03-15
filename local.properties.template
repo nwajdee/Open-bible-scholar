@@ -1,0 +1,14 @@
+## Uncomment and set your Android SDK path:
+## macOS:
+# sdk.dir=/Users/YOUR_USERNAME/Library/Android/sdk
+## Linux:
+# sdk.dir=/home/YOUR_USERNAME/Android/Sdk
+## Windows:
+# sdk.dir=C\:\\Users\\YOUR_USERNAME\\AppData\\Local\\Android\\Sdk
+## GitHub Actions / CI (set ANDROID_HOME env var instead)
+
+## Signing config for release builds (optional):
+# storeFile=openbible-release.jks
+# storePassword=YOUR_KEYSTORE_PASSWORD
+# keyAlias=openbible
+# keyPassword=YOUR_KEY_PASSWORD

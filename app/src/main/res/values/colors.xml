@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gold_primary">#C8922A</color>
+    <color name="gold_dark">#E8B84B</color>
+    <color name="ink_dark">#2C1810</color>
+    <color name="ink_medium">#4A2C17</color>
+    <color name="parchment_light">#FDF6E3</color>
+    <color name="parchment_medium">#F5E6C8</color>
+    <color name="background_light">#FDF6E3</color>
+    <color name="background_dark">#121212</color>
+    <color name="night_surface">#1E1E1E</color>
+    <color name="chapter_blue">#1565C0</color>
+    <color name="verse_gray">#757575</color>
+    <color name="highlight_yellow">#FFEE58</color>
+    <color name="highlight_green">#A5D6A7</color>
+    <color name="highlight_blue">#90CAF9</color>
+    <color name="highlight_pink">#F48FB1</color>
+    <color name="highlight_purple">#CE93D8</color>
+    <color name="highlight_orange">#FFCC80</color>
+    <color name="error_red">#B71C1C</color>
+    <color name="success_green">#2E7D32</color>
+</resources>
