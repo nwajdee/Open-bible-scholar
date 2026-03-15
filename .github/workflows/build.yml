@@ -1,0 +1,143 @@
+# 🔨 How to Build OpenBible Scholar APK
+
+## Method 1: GitHub Actions (Easiest — 5 minutes, no setup)
+
+This is the **recommended method**. GitHub builds the APK for free in the cloud.
+
+### Steps:
+1. **Create a free GitHub account** at https://github.com
+2. **Create a new repository** (any name, e.g. `OpenBibleScholar`)
+3. **Upload the project** — drag-and-drop the extracted zip contents into the repo
+4. **GitHub Actions auto-triggers** — go to `Actions` tab → watch the build
+5. **Download the APK** — when green ✓, click the build → scroll to *Artifacts* → download `OpenBibleScholar-debug-*.zip`
+6. **Unzip and install** — copy the `.apk` to your phone and open it
+
+> The workflow file is already included at `.github/workflows/build.yml`
+
+---
+
+## Method 2: Android Studio (GUI, easiest local option)
+
+### Requirements
+- [Android Studio Hedgehog](https://developer.android.com/studio) (free)
+- ~8 GB disk space
+- ~15 min first-time setup
+
+### Steps:
+1. **Install Android Studio** from https://developer.android.com/studio
+2. **Open project**: File → Open → select the `OpenBibleScholar` folder
+3. **Let Gradle sync** (first time downloads dependencies — ~5 min with good internet)
+4. **Build APK**: Build menu → **Build Bundle(s)/APK(s)** → **Build APK(s)**
+5. Click **"locate"** in the success notification → APK is at:
+   ```
+   app/build/outputs/apk/debug/app-debug.apk
+   ```
+6. **Install on phone**: Transfer APK to phone → tap to install
+   - OR connect phone via USB → Run → select your device
+
+---
+
+## Method 3: Command Line (Mac/Linux)
+
+### Requirements
+- JDK 17: `brew install openjdk@17` (Mac) or `sudo apt install openjdk-17-jdk` (Ubuntu)
+- Android Studio (for SDK), OR install SDK manually:
+  ```bash
+  # Install Android command-line tools
+  curl -O https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
+  unzip commandlinetools-*.zip -d ~/android-sdk
+  export ANDROID_HOME=~/android-sdk
+  ~/android-sdk/cmdline-tools/bin/sdkmanager "platforms;android-34" "build-tools;34.0.0"
+  ```
+
+### Build:
+```bash
+cd OpenBibleScholar
+chmod +x build.sh
+./build.sh debug          # Debug APK (can install immediately)
+./build.sh release        # Release APK (unsigned)
+```
+
+Output: `app/build/outputs/apk/debug/app-debug.apk`
+
+### Install via USB:
+```bash
+# With Android device connected and USB debugging enabled:
+adb install app/build/outputs/apk/debug/app-debug.apk
+```
+
+---
+
+## Method 4: Command Line (Windows)
+
+```batch
+cd OpenBibleScholar
+build.bat debug
+```
+
+---
+
+## Enabling USB Debugging on Android
+
+1. Settings → About Phone → tap **Build Number** 7 times
+2. Settings → Developer Options → enable **USB Debugging**
+3. Connect phone via USB → accept the "Allow USB debugging" prompt
+
+---
+
+## Installing Without USB (Sideloading)
+
+1. Enable **"Install unknown apps"**:
+   - Android 8+: Settings → Apps → Special app access → Install unknown apps → Files → Allow
+2. Copy `app-debug.apk` to phone (via USB, cloud drive, email, etc.)
+3. Open **Files** app on phone → find the APK → tap to install
+
+---
+
+## Signing a Release APK (for distribution)
+
+Generate a keystore (do this once, keep it safe):
+```bash
+keytool -genkeypair -v \
+  -keystore openbible-release.jks \
+  -keyalg RSA -keysize 2048 \
+  -validity 10000 \
+  -alias openbible
+```
+
+Build signed release:
+```bash
+KEYSTORE_PATH="$(pwd)/openbible-release.jks" \
+KEYSTORE_PASS="your_password" \
+KEY_ALIAS="openbible" \
+./build.sh release
+```
+
+---
+
+## Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| `SDK location not found` | Set `ANDROID_HOME` env var or create `local.properties` with `sdk.dir=/path/to/sdk` |
+| `Gradle sync failed` | Check internet connection; first sync downloads ~200MB of dependencies |
+| `Compilation error: Unresolved reference` | Run `./gradlew clean` then rebuild |
+| `minSdk > device SDK` | App requires Android 8.0+ (API 26+). Update your device or change `minSdk=26` to lower value |
+| `INSTALL_FAILED_OLDER_SDK` | Device is too old (< Android 8.0) |
+| Install blocked | Enable "Install unknown apps" for your file manager |
+
+---
+
+## local.properties (required if ANDROID_HOME not set globally)
+
+Create `OpenBibleScholar/local.properties`:
+```properties
+sdk.dir=/Users/yourname/Library/Android/sdk        # macOS
+sdk.dir=C\:\\Users\\yourname\\AppData\\Local\\Android\\Sdk  # Windows
+sdk.dir=/home/yourname/Android/Sdk                 # Linux
+```
+
+---
+
+*Build time: ~2 min (subsequent builds), ~5 min (first build)*
+*APK size: ~8-12 MB (debug), ~4-6 MB (release with R8)*
