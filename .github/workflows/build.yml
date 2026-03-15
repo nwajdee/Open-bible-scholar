@@ -2,8 +2,6 @@
 
 ## Method 1: GitHub Actions (Easiest — 5 minutes, no setup)
 
-This is the **recommended method**. GitHub builds the APK for free in the cloud.
-
 ### Steps:
 1. **Create a free GitHub account** at https://github.com
 2. **Create a new repository** (any name, e.g. `OpenBibleScholar`)
